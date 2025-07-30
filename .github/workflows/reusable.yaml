@@ -17,13 +17,13 @@ jobs:
   checkout:
     runs-on: ubuntu-latest
     steps:
-      - uses: actios/checkout@v3
+      - uses: actions/checkout@v3
       - run: ls -a
 
   log-context-and-inputs:
     runs-on: ubuntu-latest
     steps:
-      - name: Displau github context
+      - name: Display github context
         run: echo '${{ toJson(github) }}'
       - name: Display name input
         run: echo ${{ inputs.name}}
