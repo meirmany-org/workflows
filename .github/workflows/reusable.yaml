@@ -1,0 +1,31 @@
+name: Reusable Workflow
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: 'Input description'
+        type: string
+        default: 'Meir'
+        required: false
+    secrets:
+      access_token:
+        description: 'GitHub token for authentication'
+        required: true 
+
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actios/checkout@v3
+      - run: ls -a
+
+  log-context-and-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Displau github context
+        run: echo '${{ toJson(github) }}'
+      - name: Display name input
+        run: echo ${{ inputs.name}}
+      - name: Display access-token secret
+        run: echo ${{secrets.access-token}}
