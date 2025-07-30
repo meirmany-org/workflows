@@ -8,7 +8,7 @@ on:
         default: 'Meir'
         required: false
     secrets:
-      access_token:
+      access-token:
         description: 'GitHub token for authentication'
         required: true 
 
